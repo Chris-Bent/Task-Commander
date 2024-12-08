@@ -1,18 +1,53 @@
-import argparse
+from argparse import ArgumentParser
 import os
 import json
 import datetime 
 
 def startupCheck():
+    print("""
+    		                                
+                                            Task Commander
+                                            
+                                            ..:--------:
+                                         :#####%%%%%%%%%##*.
+                                       .##%%%%%%%%%%%%%%%%%###=
+                                      +*%%%%%%%%%%%%%%%%%%%%%%#*:
+                                    =#%%%%%%%%%%%%%%%%%%%%%%%%%%-..
+                                    +%%%%%%%%%%%%%%%%%%%%%%%%%%%%#.
+                                  :%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%.
+                                  :%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%+-
+                                  :%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%*
+                                  :%%%:..:-*%%%%%%%%%%%%%%%...=%%%+-
+                                  :%%%:  ....#%%%%%%%%%+....  ..*%..
+                                  .+*%:         -%%%-:         .*%.
+                                  ..+%:     ....-%%%-:....    ..#%.
+                                  :%%%:......#%%%%-.#%%%%-....+%%%:.
+                                  :%%%%%%%%%%%%%+  .***#%%%%%%%%%%%*
+                                  :%%%%%%#*-.#%+=    :%%%-.#%%%%%%%*
+                                  .:+#=-.  +%%#...:-.:%%%+=.  =###.
+                                           +%%%%%#%%=+%%%=:.
+                                           +%**%#*#%%%%%%%%.
+                                           +%::%*.*%**%#+#%.
+                                           +%::%+ +%.:%+.=+.
+                                           :=.:%+ +%.:%+....
+                                              .:: +%..:.
+                                                  +%.
+                                                  ::.
+
+    
+    
+    """)
+
     if os.path.isfile("cmdrtasks.json"):
-        print("Exists")
+        print("CMDR Task File Already Exists")
     else:
-        data = {}
+        taskData = {
+            "name": input("Task Name: "),
+            "timestamp": "DATETIME"
+        }
         with open("cmdrtasks.json", "w") as fileOut:
-            json.dump(data, fileOut)
-        print("File created")
-
-
+            json.dump(taskData, fileOut)
+        print("CMDR Task File Created")
 
 
 def addTask():
@@ -21,6 +56,16 @@ def addTask():
 
 
 def main():
+
+    parser = ArgumentParser(prog="Task Commander", add_help=True)
+    parser.add_argument("cmdr")
+    parser.add_argument("-t", "--task")
+    args = parser.parse_args()
+    print(args.cmdr, args.start)
+
+
+
+
 
     startupCheck()
 
