@@ -61,7 +61,7 @@ def main():
     parser.add_argument("cmdr")
     parser.add_argument("-t", "--task")
     args = parser.parse_args()
-    print(args.cmdr, args.start)
+    print(args.cmdr, args.task)
 
 
 
