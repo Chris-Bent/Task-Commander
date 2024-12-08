@@ -42,7 +42,7 @@ def startupCheck():
         print("CMDR Task File Already Exists")
     else:
         taskData = {
-            "name": input("Task Name: "),
+            "name": input("Task: "),
             "timestamp": "DATETIME"
         }
         with open("cmdrtasks.json", "w") as fileOut:
@@ -59,13 +59,11 @@ def main():
 
     parser = ArgumentParser(prog="Task Commander", add_help=True)
     parser.add_argument("cmdr")
-    parser.add_argument("-t", "--task")
+    parser.add_argument("-a", "--add")
+    parser.add_argument("-l", "--list")
+
     args = parser.parse_args()
-    print(args.cmdr, args.task)
-
-
-
-
+    print(args.cmdr, args.add, args.list)
 
     startupCheck()
 
