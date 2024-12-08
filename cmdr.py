@@ -3,20 +3,30 @@ import os
 import json
 import datetime 
 
+def startupCheck():
+    if os.path.isfile("cmdrtasks.json"):
+        print("Exists")
+    else:
+        data = {}
+        with open("cmdrtasks.json", "w") as fileOut:
+            json.dump(data, fileOut)
+        print("File created")
+
+
+
+
+def addTask():
+    pass
+
+
+
 def main():
 
-    def addTask(task):
-        return os.path.exists("cmdrtasks.json")
+    startupCheck()
 
-        if addtask("cmdrtasks.json"):
-            pass
-        else:
-            data = {
-                "task": input("Task: ")
-            }
 
-            with open("cmdrtasks.json", "w") as fileOut: # w for write r for read
-                json.dump(data, fileOut)
+
 
 main()
+
 
